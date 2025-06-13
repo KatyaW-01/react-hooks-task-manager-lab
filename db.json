@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "Buy groceries",
-      "completed": false
+      "completed": true
     },
     {
       "id": "2",
@@ -33,6 +33,11 @@
     {
       "id": "9b0c",
       "title": "Drink Water",
+      "completed": true
+    },
+    {
+      "id": "8e05",
+      "title": "Water plants",
       "completed": false
     }
   ]

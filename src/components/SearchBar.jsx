@@ -1,9 +1,9 @@
-import React, { useRef, useState, useContext, useEffect } from "react";
+import React, { useRef,useContext, useEffect } from "react";
 import TaskList from "./TaskList";
 import { TaskContext } from "../context/TaskContext";
 
 function SearchBar() {
-  const [query, setQuery] = useState("");
+  const { query, setQuery } = useContext(TaskContext);
 
   const inputRef = useRef(null)
 

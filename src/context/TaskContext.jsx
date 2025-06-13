@@ -5,6 +5,12 @@ export const TaskContext = createContext();
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([])
 
+  const [query, setQuery] = useState("");
+
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(query.toLowerCase())
+  );
+
   useEffect(() => {
       fetch('http://localhost:6001/tasks')
       .then(r=>r.json())
@@ -47,7 +53,16 @@ export function TaskProvider({ children }) {
     }
 
     return (
-      <TaskContext.Provider value={{tasks,setTasks, toggleComplete, addTask}} >
+      <TaskContext.Provider 
+        value={{
+          tasks,
+          setTasks, 
+          toggleComplete, 
+          addTask, 
+          filteredTasks, 
+          query, 
+          setQuery
+          }} >
         {children}
       </TaskContext.Provider>
     )
