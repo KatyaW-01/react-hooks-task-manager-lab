@@ -12,8 +12,26 @@ export function TaskProvider({ children }) {
       
     }, []);
 
+    function toggleComplete(id) {
+      const taskToUpdate = tasks.find(task => task.id === id) // finds the single task with that id
+      const updatedTask = {...taskToUpdate, completed: !taskToUpdate.completed} //changes the value of completed
+
+      fetch(`http://localhost:6001/tasks/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({completed: updatedTask.completed}) //fetch request changing the value of completed in the server
+      })
+      .then((response) => response.json())
+      .then((updatedData) => {
+        const updatedTasks = tasks.map(task => task.id === id ? updatedData : task)
+        setTasks(updatedTasks)
+      })
+    }
+
     return (
-      <TaskContext.Provider value={{tasks,setTasks}} >
+      <TaskContext.Provider value={{tasks,setTasks, toggleComplete}} >
         {children}
       </TaskContext.Provider>
     )
