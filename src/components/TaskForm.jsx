@@ -4,10 +4,19 @@ import { TaskContext } from "../context/TaskContext";
 function TaskForm() {
   const [taskName, setTaskName] = useState("");
 
+  const {addTask} = useContext(TaskContext)
+
   function handleSubmit(e) {
     e.preventDefault();
     if (taskName.trim() === "") return;
-    setTaskName("");
+    
+    const newTask = {
+      title: taskName.trim(),
+      completed: false,
+    }
+
+    addTask(newTask)
+    setTaskName("")
   }
 
   return (

@@ -19,7 +19,7 @@ export function TaskProvider({ children }) {
       fetch(`http://localhost:6001/tasks/${id}`, {
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({completed: updatedTask.completed}) //fetch request changing the value of completed in the server
       })
@@ -30,8 +30,24 @@ export function TaskProvider({ children }) {
       })
     }
 
+    async function addTask(task) {
+      try {
+        const response = await fetch("http://localhost:6001/tasks", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(task)
+        })
+        const newTask = await response.json()
+        setTasks(prevTasks => [...prevTasks, newTask])
+      } catch (error) {
+        console.error("Error adding task", error)
+      }
+    }
+
     return (
-      <TaskContext.Provider value={{tasks,setTasks, toggleComplete}} >
+      <TaskContext.Provider value={{tasks,setTasks, toggleComplete, addTask}} >
         {children}
       </TaskContext.Provider>
     )
