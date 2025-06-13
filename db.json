@@ -29,6 +29,11 @@
       "id": "760a",
       "title": "Take a Shower",
       "completed": false
+    },
+    {
+      "id": "9b0c",
+      "title": "Drink Water",
+      "completed": false
     }
   ]
 }
