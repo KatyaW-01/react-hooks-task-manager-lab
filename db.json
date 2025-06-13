@@ -1,30 +1,44 @@
 {
-    "tasks":
-    [
-        { 
-            "id": 1, 
-            "title": "Buy groceries", 
-            "completed": false 
-        },
-        { 
-            "id": 2, 
-            "title": "Finish React project", 
-            "completed": false 
-        },
-        { 
-            "id": 3, 
-            "title": "Call the bank", 
-            "completed": true 
-        },
-        { 
-            "id": 4, 
-            "title": "Walk the dog", 
-            "completed": false 
-        },
-        { 
-            "id": 5, 
-            "title": "Read a book", 
-            "completed": true 
-        }
-    ]
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Buy groceries",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "title": "Finish React project",
+      "completed": false
+    },
+    {
+      "id": "3",
+      "title": "Call the bank",
+      "completed": true
+    },
+    {
+      "id": "4",
+      "title": "Walk the dog",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "title": "Read a book",
+      "completed": true
+    },
+    {
+      "id": "760a",
+      "title": "Take a Shower",
+      "completed": false
+    },
+    {
+      "id": "9b0c",
+      "title": "Drink Water",
+      "completed": true
+    },
+    {
+      "id": "8e05",
+      "title": "Water plants",
+      "completed": false
+    }
+  ]
 }
